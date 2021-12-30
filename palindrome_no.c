@@ -9,9 +9,5 @@ int main() {
         reversedNum = (reversedNum * 10) + (number % 10);
         number /= 10;
     }
-    if(reversedNum == initialNum) {
-        printf("%d is palindrom", initialNum);
-    } else {
-        printf("%d is not palindrom", initialNum);
-    } 
+    reversedNum == initialNum ? printf("%d is palindrom", initialNum) : printf("%d is not palindrom", initialNum);
 }
