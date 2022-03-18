@@ -20,6 +20,5 @@ void displaySum() {
 }
 
 void main() {
-
     displaySum();
 }
