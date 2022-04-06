@@ -4,17 +4,25 @@ int size, arr[10], pos = -1;
 
 void linearSearch(int nums[], int size, int elm) {
     printf("initiating linearSearch");
+    int i;
+     
+    for(i=0;i<size;i++)
+        if(nums[i] == elm)
+            break;
+     
+    if(i<size)
+        printf("\n%d was found at position %d. Search Successful!",elm, i+1);
+    else
+        printf("\n%d was not found. Search Unsuccessful!",elm);
 }
 void binarySearch(int nums[], int size, int elm) {
     int start = 0, end = size, mid = 0; 
-    //sort the array first
     printf("initiating binarySearch...\n");
     while(start <= end) {
         mid = (end + start) / 2;
         if(nums[mid] == elm) {
             pos = mid;
             printf("%d was found at position %d. Search Successful!\n",elm,pos+1);
-            //printf("Pos = %d", pos);
             break;
         } else if(nums[mid] > elm) {
             end = mid-1;
