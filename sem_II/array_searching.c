@@ -6,26 +6,26 @@ void linearSearch(int nums[], int size, int elm) {
     printf("initiating linearSearch");
 }
 void binarySearch(int nums[], int size, int elm) {
-    int start = 0, end = size, mid = 0;
+    int start = 0, end = size, mid = 0; 
     //sort the array first
     printf("initiating binarySearch...\n");
-    while(start < end) {
+    while(start <= end) {
         mid = (end + start) / 2;
         if(nums[mid] == elm) {
             pos = mid;
             printf("%d was found at position %d. Search Successful!\n",elm,pos+1);
+            //printf("Pos = %d", pos);
             break;
         } else if(nums[mid] > elm) {
             end = mid-1;
         } else {
             start = mid+1;
         }
+        pos = -1;
+    }
         if(pos == -1){
             printf("%d was not found. Search Unsuccessful!\n",elm);
-            break;
         }
-    }
-
 }
 
 void main() {
