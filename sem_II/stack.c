@@ -10,23 +10,38 @@ void push() {
     } else {
         printf("Enter the element to push : ");
         scanf("%d",&elm);
-        topPos++;
+        topPos = topPos + 1;
         stack_arr[topPos] = elm;
     }
 
 }
 void pop() {
-    printf("initiating pop operation...\n\n");
+    int elm;
+    if(topPos == -1) 
+        printf("Stack Underflow!");
+    else {
+        elm = stack_arr[topPos];
+        topPos = topPos - 1;
+        printf("%d has been popped from the array!", elm);
+    }
 }
 void peek() {
-    printf("initiating peek operation...\n\n");
+    int elm;
+    if(topPos == -1) 
+        printf("Stack is Empty!");
+    else {
+        elm = stack_arr[topPos];
+        printf("The last element in the stack is %d", elm);
+        isFull = 0;
+    }
 }
 void display() {
     int i;
-    printf("Displaying Stack Elements...\n\n");
-    for(i = 0; i < SIZE; i++) {
-        printf("%d ",stack_arr[i]);
-    }
+    if(topPos == -1) 
+        printf("Stack is Empty!");
+    else 
+        for(i = 0; i <= topPos; i++) 
+            printf("%d ",stack_arr[i]);
 }
 
 void main() {
@@ -35,8 +50,7 @@ void main() {
         printf("\nPlease choose the method of search or exit:\n1 ► push ╬ 2 ► pop ╬ 3 ► peek ╬ 4 ► display ╬ 5 ► EXIT : ");
         scanf("%d",&choice);
         switch(choice){
-            case 1: popChoice;
-                    printf("initiating push operation...\n");
+            case 1: printf("initiating push operation...\n");
                     printf("\nwould you like to enter the elements :\n1 ► altogether ╬ 2 ► one by one : ");
                     scanf("%d",&popChoice);
                     if(popChoice == 1) {
@@ -51,9 +65,19 @@ void main() {
                     }else {
                         printf("Invalid Input!\n");
                     }break;
-            case 2: pop(); break;
-            case 3: peek(); break;
-            case 4: display(); break;
+
+            case 2: printf("initiating pop operation...\n\n");
+                    pop();
+                    break;
+
+            case 3: printf("initiating peek operation...\n\n");
+                    peek();
+                    break;
+
+            case 4: printf("Displaying Stack Elements...\n\n");
+                    display(); 
+                    break;
+
             case 5: break;
             default: printf("Invalid input\n");
         }   
