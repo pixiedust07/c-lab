@@ -8,7 +8,7 @@ void push() {
         printf("Stack overflow!\n");
         isFull = 1;
     } else {
-        printf("Enter the element to push : ");
+        printf("-> Enter the element to push : ");
         scanf("%d",&elm);
         topPos = topPos + 1;
         stack_arr[topPos] = elm;
@@ -22,7 +22,7 @@ void pop() {
     else {
         elm = stack_arr[topPos];
         topPos = topPos - 1;
-        printf("%d has been popped from the array!", elm);
+        printf("-> %d has been popped from the array!\n", elm);
     }
 }
 void peek() {
@@ -31,7 +31,7 @@ void peek() {
         printf("Stack is Empty!");
     else {
         elm = stack_arr[topPos];
-        printf("The last element in the stack is %d", elm);
+        printf("-> The last element in the stack is %d\n", elm);
         isFull = 0;
     }
 }
@@ -41,17 +41,18 @@ void display() {
         printf("Stack is Empty!");
     else 
         for(i = 0; i <= topPos; i++) 
-            printf("%d ",stack_arr[i]);
+            printf("-> %d ",stack_arr[i]);
+    printf("\n");
 }
 
 void main() {
     int choice, popChoice, idx;
     do{
-        printf("\nPlease choose the method of search or exit:\n1 ► push ╬ 2 ► pop ╬ 3 ► peek ╬ 4 ► display ╬ 5 ► EXIT : ");
+        printf("\nPlease choose the stack operation to perform:\n1 ► push ╬ 2 ► pop ╬ 3 ► peek ╬ 4 ► display ╬ 5 ► EXIT : ");
         scanf("%d",&choice);
         switch(choice){
             case 1: printf("initiating push operation...\n");
-                    printf("\nwould you like to enter the elements :\n1 ► altogether ╬ 2 ► one by one : ");
+                    printf("\nHow would you like to enter the elements ? 1 ► altogether ╬ 2 ► one by one : ");
                     scanf("%d",&popChoice);
                     if(popChoice == 1) {
                         if(isFull == 1) 
